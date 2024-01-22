@@ -1,0 +1,26 @@
+package ca.uwaterloo.cs446
+import java.util.list;
+import java.util.LinkedList;
+
+abstract public class Subject{
+  List<Observers> observers = new LinkedList<>();
+  int State=0;
+
+  public void attach(Observer observer){
+    observers.add(observer)
+  }
+
+  public void sendNotice(){
+    for ( Observer observer: observers){
+      observer.update();
+    }  
+  }
+
+  abstract public int getState(){
+    return State;
+  }
+
+ abstract public void setState(int state){
+  State = state;
+  }
+}
